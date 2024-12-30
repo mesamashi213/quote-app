@@ -1,29 +1,4 @@
-# README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+<h2>Introduction</h2><p><strong>QuoteDash</strong> is a simple application developed as part of my take-home assignment based on the requirements provided by Sir Yuichi. This application aims to streamline the process of sending and managing quotes by providing a smooth, user-friendly interface for both salespeople and recipients.</p><h2>Technical Details</h2><ul><li><p><strong>Backend</strong>: The backend is built with <strong>Node.js</strong>, using <strong>Express.js</strong> to handle the API routes and <strong>Sequelize</strong> as the ORM for interacting with an <strong>SQLite</strong> database. The backend provides the necessary routes for creating quotes, updating quote statuses, and fetching quotes based on their unique IDs.</p></li><li><p><strong>Email Functionality</strong>: <strong>Nodemailer</strong> is used to send the quote confirmation email to the recipient. The email contains a unique URL, generated for each quote, allowing the recipient to securely view the quote and make their decision.</p></li><li><p><strong>Real-Time Updates</strong>: The system uses <strong>Socket.io</strong> to emit updates about the quote status to all connected clients, ensuring that any changes made by the recipient are immediately reflected on the salesperson’s or admin’s dashboard without needing a manual refresh.</p></li><li><p><strong>Frontend</strong>: The frontend is built with <strong>React.js</strong>, providing an intuitive interface for both the salesperson and the recipient. React’s state management and lifecycle methods ensure smooth interaction between components, such as submitting quotes, viewing them, and accepting/denying them.</p></li><li><p><strong>Toast Notifications</strong>: <strong>React Hot Toast</strong> is used to display real-time notifications, such as success or error messages, to the user after they take actions like submitting a quote or making a decision.</p></li></ul><h2>User Flow</h2><ol><li><p><strong>Salesperson creates a quote</strong>: The salesperson logs into the application, enters the recipient's email, and creates a new quote. The quote is saved to the database, and an email is sent to the recipient with a link to view the quote.</p></li><li><p><strong>Recipient views the quote</strong>: Upon clicking the link in the email, the recipient is directed to a page where they can see the quote details and choose whether to accept or deny the quote.</p></li><li><p><strong>Recipient makes a decision</strong>: After reviewing the quote, the recipient clicks either the "Accept" or "Deny" button. The decision is saved, and the status of the quote is updated accordingly.</p></li><li><p><strong>Real-time update on the dashboard</strong>: Once the recipient makes their decision, the dashboard reflects this in real-time, notifying the salesperson or admin of the updated status.</p></li></ol><h2>Instructions</h2><p>To run this application in a development environment, follow these steps:</p><ol><li><p><strong>Install Dependencies</strong>:
+Run the following command in both the <strong>Root</strong> and <strong>Client</strong> directories:</p><p><code>npm install</code></p><p><strong>Note</strong>: If you encounter an error during <code>npm install</code>, please use <strong>Node.js version v23.1.0</strong>, as this is the version used in my development environment.</p></li><li><p><strong>Run the Development Server</strong>:
+After installing the dependencies, navigate to the <strong>Root</strong> directory and execute the following command:</p><p><code>npm run dev</code></p><p>This will start the API service at <code>localhost:5000</code> and open the frontend at <code>localhost:3011</code> in your browser.</p></li><li><p><strong>Explore the App</strong>:
+Once the dashboard page is accessible, you can explore the app following the user flow outlined above.</p></li></ol><h2>Additional Information</h2><p>To test the email functionality, you can create an account on <strong>Mailtrap</strong> and retrieve the SMTP credentials to configure in your <code>.env</code> file.</p>
