@@ -3,14 +3,15 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-function ViewQuote() {
+// API URL fetched from environment variables.
+const apiUrl = process.env.REACT_APP_API_URL;
+
+const ViewQuote = () => {
   // Using useParams to extract the quoteId from the URL params.
   const { quoteId } = useParams();
   // useState hook to store the quote details fetched from the backend.
   const [quote, setQuote] = useState(null);
-  // API URL fetched from environment variables.
-  const apiUrl = process.env.REACT_APP_API_URL;
-
+  
   useEffect(() => {
     // Fetch the quote details
     axios
