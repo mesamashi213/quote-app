@@ -4,17 +4,17 @@
     {
       "src": "client/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "client/build" }  // Build React app inside the 'client' folder
+      "config": { "distDir": "client/build" }  
     },
     {
-      "src": "server.js",  // Your server file
-      "use": "@vercel/node"  // Handle the server.js as a serverless function
+      "src": "server.js",  
+      "use": "@vercel/node"  
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/client/build/$1"  // Route all requests to the React app
+      "dest": "/client/build/$1"  
     }
   ]
 }
